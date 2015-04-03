@@ -23,10 +23,10 @@ tidy =: 3 : 0
  (y ~: CR) # y                 NB. remove CR
 )
 
-cmdlist=:|. < ;._2 tidy 1!:1 < 'C:\Users\lauchlin\j64-803-user\projects\toyrobot\example1.txt'
+cmdlist=:|. < ;._2 tidy 1!:1 < '/home/lauchlin/j64-803-user/projects/toyrobot/example1.txt'
 cmdmask=:+/cmds=/0 { |: ;: > cmdlist
 cleancmds=:(I. cmdmask) { cmdlist
-". ,,.>cleancmds
+NB. ". ,,.>cleancmds
 
-dirmask=:+/dirs=/ ;: > cmdlist
-;,/ |: 2 5 $ cmds,' ] ';' ';' ';' ';' '
+NB. dirmask=:+/dirs=/ ;: > cmdlist
+NB. ;,/ |: 2 5 $ cmds,' ] ';' ';' ';' ';' '
