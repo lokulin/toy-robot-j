@@ -1,3 +1,5 @@
+NB. A terse functional implementation where robot is represented as an array.
+
 require 'format/printf'
 robot=:0,0,0,0
 EAST=:0

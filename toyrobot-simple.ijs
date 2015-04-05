@@ -1,3 +1,5 @@
+NB. A simple procedural/functional approach
+
 require 'format/printf'
 facing=:0
 xloc=:0
@@ -10,6 +12,7 @@ NORTH=:1
 WEST=:2
 SOUTH=:3
 
+NB. Add 0.5 and then floor to round to closest integer
 cos=:<.@:(+&0.5)@(2&o.)
 sin=:<.@:(+&0.5)@(1&o.)
 
@@ -62,6 +65,8 @@ tidy =: 3 : 0
 )
 
 doCmds=: 3 : 0
+  NB. Check whether the commands are allowed but just accepts arguments.
+  NB. An improvement would be to also discard commands with invalid arguments.
   torun=. I. ((i.4){y) E. cmds
   if. _1=torun do. ''
   elseif. 0<torun do. out=:". (> y,' 0')
@@ -74,4 +79,4 @@ run=: 3 : 0
  out=:doCmds ;. _2 tidy 1!:1 < y
 )
 
-run '/home/lauchlin/j64-803-user/projects/toyrobot/example1.txt'
+NB. run '/path/to/toyrobot/example1.txt'
