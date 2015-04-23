@@ -2,17 +2,17 @@ NB. A terse functional implementation where robot is represented as an array.
 
 require 'format/printf'
 robot=:0,0,0,0
-EAST=:0
-NORTH=:o.0.5
-WEST=:o.1
-SOUTH=:o.1.5
+NORTH=:0
+EAST=:o.0.5
+SOUTH=:o.1
+WEST=:o.1.5
 cmds=:'PLACEMOVERIGHTLEFTREPORT'
-dirs=:;: 'EAST NORTH WEST SOUTH'
+dirs=:;: 'NORTH EAST SOUTH WEST'
 
 cos=:<.@:(+&0.5)@(2&o.)
 sin=:<.@:(+&0.5)@(1&o.)
 
-MOVE=: 3 : 'robot=:((0>.4<.((0{[)+(]cos(2{[)[))),(0>.4<.((1{[)+(]sin(2{[)[))),(2{[),(3{[)) y'
+MOVE=: 3 : 'robot=:((0>.4<.((0{[)+(]sin(2{[)[))),(0>.4<.((1{[)+(]cos(2{[)[))),(2{[),(3{[)) y'
 RIGHT=: 3 : 'robot=:((0{[),(1{[),((]o._0.5)+2{[),3{[) y'
 LEFT=: 3 : 'robot=:((0{[),(1{[),((]o.0.5)+2{[),3{[) y'
 PLACE=: 3 : 'robot=:((0{[),(1{[),(2{[),(0=((0>(0{[))+(4<(0{[))+(0>(1{[))+(4<(1{[))))) y'

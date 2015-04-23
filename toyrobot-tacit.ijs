@@ -3,18 +3,18 @@ NB. At the moment PLACE does not work unless it is the first command in the inpu
 NB. An example interactive run would be REPORT MOVE MOVE MOVE LEFT MOVE PLACE 0,0,NORTH
 
 require 'format/printf'
-EAST=:0
-NORTH=:o.0.5
-WEST=:o.1
-SOUTH=:o.1.5
-dirs=:;: 'EAST NORTH WEST SOUTH'
+NORTH=:0
+EAST=:o.0.5
+SOUTH=:o.1
+WEST=:o.1.5
+dirs=:;: 'NORTH EAST SOUTH WEST'
 cmds=:;:'PLACE MOVE RIGHT LEFT REPORT'
 
 cos=:<.@:(+&0.5)@(2&o.)
 sin=:<.@:(+&0.5)@(1&o.)
 
 NB. Lots of braces, could be much neater!
-MOVE=:((0>.4<.((0{[)+(]cos(2{[)[))),(0>.4<.((1{[)+(]sin(2{[)[))),(2{[),(3{[))
+MOVE=:((0>.4<.((0{[)+(]sin(2{[)[))),(0>.4<.((1{[)+(]cos(2{[)[))),(2{[),(3{[))
 RIGHT=:((0{[),(1{[),((]o._0.5)+2{[),3{[)
 LEFT=:((0{[),(1{[),((]o.0.5)+2{[),3{[)
 PLACE=:((0{[),(1{[),(2{[),(0=((0>(0{[))+(4<(0{[))+(0>(1{[))+(4<(1{[)))))

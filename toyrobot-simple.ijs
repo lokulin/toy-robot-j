@@ -6,11 +6,11 @@ xloc=:0
 yloc=:0
 placed=:0
 cmds=:'PLACEMOVERIGHTLEFTREPORT'
-dirs=:;:'EAST NORTH WEST SOUTH'
-EAST=:0
-NORTH=:1
-WEST=:2
-SOUTH=:3
+dirs=:;:'NORTH EAST SOUTH WEST'
+NORTH=:0
+EAST=:1
+SOUTH=:2
+WEST=:3
 
 NB. Add 0.5 and then floor to round to closest integer
 cos=:<.@:(+&0.5)@(2&o.)
@@ -21,8 +21,8 @@ isOnTable=: 3 : 0
 )
 
 MOVE=: 3 : 0
-  newx=.xloc + cos o.facing%2
-  newy=.yloc + sin o.facing%2
+  newx=.xloc + sin o.facing%2
+  newy=.yloc + cos o.facing%2
   if. 1=isOnTable newx,newy do.
    xloc=:newx
    yloc=:newy
@@ -30,13 +30,13 @@ MOVE=: 3 : 0
   ''
 )
 
-RIGHT=: 3 : 0 
-  facing=:4|<:facing
+RIGHT=: 3 : 0
+  facing=:4|>:facing
   ''
 )
 
 LEFT=: 3 : 0
-  facing=:4|>:facing
+  facing=:4|<:facing
   ''
 )
 
@@ -55,7 +55,7 @@ PLACE=: 3 : 0
 REPORT=: 3 : 0
   if. 1=placed do.
     '%d,%d,%s'printf(xloc;yloc;(facing { dirs))
-  end. 
+  end.
   ''
 )
 
